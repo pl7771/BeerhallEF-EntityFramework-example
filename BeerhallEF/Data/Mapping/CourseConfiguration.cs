@@ -13,7 +13,9 @@ namespace BeerhallEF.Data.Mapping
         {
             builder.ToTable("Course");
             builder.Property(e => e.Title).IsRequired().HasMaxLength(100);
-            
+            builder.HasDiscriminator<string>("Type of course")
+                .HasValue<OnlineCourse>("Online")
+                .HasValue<OnsiteCourse>("Onsite");
         }
     }
 }

@@ -10,6 +10,9 @@ namespace BeerhallEF.Data
         public DbSet<Beer> Beers { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<OnlineCourse> OnlineCourses { get; set; }
+        public DbSet<OnsiteCourse> OnsiteCourses { get; set; }
+
         public DbSet<Category> Categories { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,6 +30,8 @@ namespace BeerhallEF.Data
             modelBuilder.ApplyConfiguration(new CourseConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryBrewerConfiguration());
+            modelBuilder.Entity<OnsiteCourse>().HasBaseType<Course>();
+            modelBuilder.Entity<OnlineCourse>().HasBaseType<Course>();
         }
 
     }
