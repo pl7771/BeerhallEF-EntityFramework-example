@@ -14,6 +14,7 @@ namespace BeerhallEF.Data.Mapping
             builder.ToTable("Brewer");
             builder.HasKey(e => e.BrewerId);
             builder.Property(p => p.Timestamp).ValueGeneratedOnAddOrUpdate().IsConcurrencyToken();
+            builder.HasMany(e => e.Beers).WithOne().IsRequired().OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BeerhallEF.Models
 {
-    class Beer
+    public class Beer
     {
         #region Properties
         public int BeerId { get; set; }
@@ -12,8 +12,17 @@ namespace BeerhallEF.Models
         public string Description { get; set; }
         public double? AlcoholByVolume { get; set; }
         public bool AlcoholKnown => AlcoholByVolume.HasValue;
-        public decimal Price {get; set;} 
-
+        public decimal Price {get; set;}
         #endregion
+
+        #region Constructor
+        protected Beer() { }
+
+        public Beer(string name, decimal price) : this() {
+            Name = name;
+            Price = price;
+        }
+        #endregion
+
     }
 }
