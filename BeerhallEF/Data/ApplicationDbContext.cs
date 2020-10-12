@@ -7,9 +7,10 @@ namespace BeerhallEF.Data
     class ApplicationDbContext : DbContext
     {
         public DbSet<Brewer> Brewers { get; set; }
-       // public DbSet<Beer> Beers { get; set; }
+        public DbSet<Beer> Beers { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Category> Categories { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString =
@@ -24,6 +25,8 @@ namespace BeerhallEF.Data
             modelBuilder.ApplyConfiguration(new BeerConfiguration());
             modelBuilder.ApplyConfiguration(new LocationConfiguration());
             modelBuilder.ApplyConfiguration(new CourseConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryBrewerConfiguration());
         }
 
     }

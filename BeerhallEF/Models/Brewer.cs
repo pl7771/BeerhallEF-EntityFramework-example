@@ -20,6 +20,8 @@ namespace BeerhallEF.Models
         public Location Location {get; set;}
         public ICollection<Course> Courses { get; set; }
 
+
+
         #region Constructor
         public Brewer()
         {
