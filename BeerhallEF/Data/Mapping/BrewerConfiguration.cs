@@ -16,6 +16,7 @@ namespace BeerhallEF.Data.Mapping
             builder.Property(p => p.Timestamp).ValueGeneratedOnAddOrUpdate().IsConcurrencyToken();
             builder.HasMany(e => e.Beers).WithOne().IsRequired().OnDelete(DeleteBehavior.Cascade);
             builder.HasOne(e => e.Location).WithMany().HasForeignKey("PostalCode").IsRequired(false).OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(e => e.Courses).WithOne(e => e.Brewer).IsRequired().OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -18,11 +18,13 @@ namespace BeerhallEF.Models
         public int NrOfBeer => Beers.Count;
         #endregion
         public Location Location {get; set;}
+        public ICollection<Course> Courses { get; set; }
 
         #region Constructor
         public Brewer()
         {
             Beers = new HashSet<Beer>();
+            Courses = new HashSet<Course>();
         }
         #endregion
     }
