@@ -8,6 +8,8 @@ namespace BeerhallEF.Data
     {
         public DbSet<Brewer> Brewers { get; set; }
        // public DbSet<Beer> Beers { get; set; }
+        public DbSet<Location> Locations { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString =
@@ -20,6 +22,7 @@ namespace BeerhallEF.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new BrewerConfiguration());
             modelBuilder.ApplyConfiguration(new BeerConfiguration());
+            modelBuilder.ApplyConfiguration(new LocationConfiguration());
         }
 
     }

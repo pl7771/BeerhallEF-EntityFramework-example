@@ -17,6 +17,7 @@ namespace BeerhallEF.Models
         public ICollection<Beer> Beers { get; private set; }
         public int NrOfBeer => Beers.Count;
         #endregion
+        public Location Location {get; set;}
 
         #region Constructor
         public Brewer()
